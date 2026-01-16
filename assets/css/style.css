@@ -1,0 +1,1120 @@
+:root {
+    --main: #181A2F;
+    --primary: #242E49;
+    --secondary: #37415C;
+    --text: #FDA481;
+    --text-hover: #FDCA81;
+    --text-active: #FDF081;
+    --initial: #B4182D;
+    --hover: #54162B;
+    --header-height: 68px;
+    --footer-height: 60px;
+}
+
+::selection {
+    background-color: var(--initial);
+    color: var(--text-hover);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--main);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Utility class for standalone centered pages (login/register/etc.) */
+.centered {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--footer-height));
+}
+
+/* Apply spacing only when page includes header/footer */
+body.has-header {
+    padding-top: var(--header-height);
+}
+
+body.has-footer {
+    padding-bottom: var(--footer-height);
+}
+
+/* prevent scrolling when mobile menu open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Fixed site header and footer */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.site-header .brand {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.site-header nav {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.site-header .btn-view {
+    background: transparent;
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.site-header .btn-view:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--text-hover);
+    color: var(--text-hover);
+}
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--footer-height);
+    background: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    color: var(--text);
+    font-size: 13px;
+    z-index: 999;
+}
+
+/*-----------------------------------*\
+Login Box
+\*-----------------------------------*/
+
+.login-box {
+    background: var(--primary);
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.login-box h2 {
+    color: var(--text);
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+/*-----------------------------------*\
+Login Fields
+\*-----------------------------------*/
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    padding-left: 40px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    color: var(--text);
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.login-box input:focus {
+    background: var(--secondary);
+    box-shadow: 0 0 0 2px var(--hover);
+}
+
+/*-----------------------------------*\
+Login Button
+\*-----------------------------------*/
+.login-box button {
+    padding: 14px;
+    background: var(--initial);
+    border: none;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.login-box button:hover {
+    background: var(--hover);
+    color: var(--text-hover);
+    transform: translateY(-2px);
+}
+
+/*-----------------------------------*\
+Registration Link
+\*-----------------------------------*/
+.register-link {
+    text-align: center;
+    margin-top: 4px;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.register-link a {
+    color: var(--text-active);
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    color: var(--text-hover);
+}
+
+/*-----------------------------------*\
+Error Message
+\*-----------------------------------*/
+.error-msg {
+    background: rgba(255, 56, 56, 0.12);
+    border-left: 4px solid #ff4d4d;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #ffb5b5;
+    font-size: 14px;
+}
+
+/*-----------------------------------*\
+Lucide Icon Size
+\*-----------------------------------*/
+i[data-lucide] {
+    width: 20px;
+    height: 20px;
+}
+
+.i-field {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+
+/*-----------------------------------*\
+Dashboard
+\*-----------------------------------*/
+.dashboard-container {
+    min-width: 1150px;
+    margin: 40px;
+    padding: 0 20px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.dashboard-title {
+    color: var(--text);
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.dash-box {
+    background: var(--primary);
+    padding: 25px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    transition: 0.25s;
+    border: 1px solid transparent;
+}
+
+.dash-box:hover {
+    background: var(--secondary);
+    border-color: var(--text-hover);
+}
+
+.dash-box i {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.dash-box h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.dash-box p {
+    opacity: 0.8;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/*-----------------------------------*\
+Upload PDF
+\*-----------------------------------*/
+.page-container {
+    min-width: 650px;
+    margin: 40px;
+    text-align: center;
+}
+
+.page-title {
+    color: var(--text);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.upload-card {
+    background: var(--primary);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Extracted view: make action buttons same size (scoped to this container) */
+.extracted-actions .btn-primary,
+.extracted-actions .btn-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 180px;
+    height: 44px;
+    padding: 10px 16px;
+    font-size: 15px;
+}
+
+/* keep primary and view variants visually consistent */
+.extracted-actions .btn-primary {
+    border-radius: 12px;
+}
+
+.extracted-actions .btn-view {
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+/* On small screens stack and let buttons be full-width */
+@media (max-width: 700px) {
+    .extracted-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .extracted-actions .btn-primary,
+    .extracted-actions .btn-view {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+    }
+}
+
+/* width: 65px;
+height: 65px;
+color: var(--text-active);
+} */
+
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--secondary);
+    color: var(--text-hover);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.file-label input {
+    display: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--initial);
+    color: var(--text);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--hover);
+    color: var(--text-hover);
+}
+
+/* Desktop: center upload controls and limit width */
+@media (min-width: 701px) {
+    .upload-card form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .upload-card .file-label {
+        display: inline-flex;
+        width: auto;
+        max-width: 480px;
+        padding: 12px 18px;
+        margin: 0 auto 12px auto;
+        justify-content: center;
+    }
+
+    .upload-card .btn-primary {
+        width: auto;
+        min-width: 200px;
+        max-width: 420px;
+        padding: 12px 24px;
+        display: inline-block;
+        margin: 0 auto;
+    }
+}
+
+.error-msg,
+.success-msg {
+    margin-top: 15px;
+}
+
+.success-msg {
+    color: #85ff9e;
+    font-size: 14px;
+}
+
+.divider {
+    margin: 25px 0;
+    bottom: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.uploaded-title {
+    color: var(--text);
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.uploaded-list {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pdf-item {
+    background: var(--secondary);
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-hover);
+}
+
+.pdf-item svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-active);
+}
+
+.no-files {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/*-----------------------------------*\
+Upload Page Responsive
+\*-----------------------------------*/
+@media (max-width: 700px) {
+    .page-container {
+        min-width: 100%;
+        padding: 0 12px;
+        margin-top: 20px;
+    }
+
+    .page-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .upload-card {
+        padding: 20px 15px;
+        border-radius: 14px;
+    }
+
+    .upload-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .file-label {
+        flex-direction: row;
+        gap: 10px;
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .uploaded-list {
+        font-size: 18px;
+    }
+
+    .pdf-item {
+        padding: 10px 12px;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .pdf-item svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/*-----------------------------------*\
+PDF List
+\*-----------------------------------*/
+Upload Page Responsive .pdf-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.pdf-item-card {
+    background: var(--primary);
+    padding: 18px 20px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.pdf-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pdf-left svg {
+    width: 32px;
+    height: 32px;
+    color: var(--text-active);
+}
+
+.pdf-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pdf-name {
+    color: var(--text-hover);
+    font-size: 17px;
+    margin: 0;
+}
+
+.pdf-date {
+    color: var(--text-active);
+    font-size: 13px;
+    margin: 2px 0 0;
+}
+
+.btn-view {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--initial);
+    padding: 10px 16px;
+    color: var(--text);
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-view:hover {
+    background: var(--hover);
+    color: var(--text-hover);
+}
+
+.btn-view:active {
+    background: var(--hover);
+    color: var(--text-active);
+}
+
+/*-----------------------------------*\
+PDF List Page Responsive
+\*-----------------------------------*/
+
+@media (max-width: 700px) {
+    .pdf-list-container {
+        padding: 0 10px;
+    }
+
+    .pdf-item-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .pdf-left {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .pdf-left svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .pdf-name {
+        font-size: 16px;
+    }
+
+    .pdf-date {
+        font-size: 12px;
+    }
+
+    .btn-view {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+/*-----------------------------------*\
+View PDF
+\*-----------------------------------*/
+.pdf-view-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    color: var(--text);
+}
+
+.pdf-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--secondary);
+}
+
+.pdf-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    background: var(--initial);
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.btn-action:hover {
+    background: var(--hover);
+    color: var(--text-hover);
+}
+
+.btn-action:active {
+    color: var(--text-active);
+}
+
+/*-----------------------------------*\
+View PDF Responsive
+\*-----------------------------------*/
+@media (max-width: 600px) {
+    .pdf-frame {
+        height: 400px;
+    }
+
+    .pdf-actions {
+        flex-direction: column;
+    }
+}
+
+/*-----------------------------------*\
+View Summary
+\*-----------------------------------*/
+.summary-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    color: var(--text);
+}
+
+/* Admin / Page title */
+.page-title {
+    color: var(--text);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.summary-meta {
+    opacity: 0.8;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.summary-actions {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/*-----------------------------------*\
+Summary List
+\*-----------------------------------*/
+
+.summary-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.summary-card {
+    background: var(--primary);
+    padding: 18px 20px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.summary-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.summary-left i {
+    width: 32px;
+    height: 32px;
+    color: var(--text-active);
+}
+
+.summary-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-title {
+    color: var(--text-hover);
+    font-size: 17px;
+    margin: 0;
+}
+
+.summary-date {
+    color: var(--text-active);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/*-----------------------------------*\
+Summary List RESPONSIVE
+\*-----------------------------------*/
+@media (max-width: 480px) {
+    .summary-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .btn-view {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .summary-title {
+        font-size: 15px;
+        max-width: 260px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/*-----------------------------------*\
+RESPONSIVE
+\*-----------------------------------*/
+@media (max-width: 900px) {
+    body {
+        align-items: flex-start;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-container {
+        min-width: 100%;
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    .dashboard-title {
+        font-size: 22px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .dash-box {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .dash-box i {
+        margin: 0 auto 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .page-container {
+        min-width: 100%;
+        padding: 0 10px;
+    }
+
+    .upload-card {
+        padding: 20px;
+    }
+
+    .uploaded-list {
+        gap: 10px;
+    }
+
+    .pdf-item {
+        padding: 10px 12px;
+        overflow: hidden;
+    }
+
+    .pdf-item span,
+    .pdf-name {
+        display: inline-block;
+        max-width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 480px) {
+    .pdf-item {
+        padding: 10px 12px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .pdf-item-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .btn-view {
+        /* width: 100%; */
+        justify-content: center;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header {
+        padding: 0 12px;
+    }
+
+    .site-header nav {
+        gap: 8px;
+    }
+
+    .site-header .brand {
+        font-size: 18px;
+    }
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    width: 38px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 22px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+@media (max-width: 700px) {
+    :root {
+        --header-height: 56px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .site-header nav {
+        display: none;
+    }
+
+    .site-header nav.open {
+        display: flex;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+        background: var(--primary);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        z-index: 998;
+    }
+
+    .site-header .btn-view {
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        display: block;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+}
+
+/* Admin page responsive tweaks */
+@media (max-width: 900px) {
+    .page-title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .pdf-list-container {
+        gap: 12px;
+    }
+
+    .pdf-item-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .pdf-left {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .pdf-info {
+        width: 100%;
+    }
+
+    .pdf-name {
+        font-size: 15px;
+        max-width: 100%;
+    }
+
+    .pdf-date {
+        font-size: 13px;
+    }
+
+    .btn-view {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .page-container {
+        padding: 0 10px;
+    }
+}
+
+/* Admin improvements: tighter responsive behavior for smaller screens */
+@media (max-width: 900px) {
+    .page-container {
+        min-width: auto;
+        width: 100%;
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    .page-title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+    }
+
+    .dash-box {
+        padding: 18px;
+    }
+
+    .dash-box h3 {
+        font-size: 18px;
+    }
+
+    .dash-box p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dash-box {
+        padding: 14px;
+    }
+
+    .dash-box h3 {
+        font-size: 16px;
+    }
+
+    .dash-box p {
+        font-size: 13px;
+    }
+
+    .pdf-item-card {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .pdf-left svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .btn-view {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .pdf-info {
+        gap: 6px;
+    }
+}
+
+/* When mobile menu opens, don't let it overlap the top of the page content */
+.no-scroll .page-container {
+    margin-top: calc(var(--header-height) + 8px);
+}
+
+/* Ensure long names wrap on narrow screens */
+.pdf-name,
+.summary-title {
+    word-break: break-word;
+    white-space: normal;
+}
